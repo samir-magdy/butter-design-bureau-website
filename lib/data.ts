@@ -6,4 +6,6 @@ export type Project = {
   slug: string;
   category: string;
   coverImage: SanityImageSource;
+  description?: string;
+  gallery?: SanityImageSource[];
 };

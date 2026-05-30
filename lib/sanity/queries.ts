@@ -9,3 +9,19 @@ export const projectsQuery = defineQuery(`
     coverImage,
   }
 `);
+
+export const allSlugsQuery = defineQuery(`
+  *[_type == "project"] { "slug": slug.current }
+`);
+
+export const projectBySlugQuery = defineQuery(`
+  *[_type == "project" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    category,
+    coverImage,
+    description,
+    gallery,
+  }
+`);

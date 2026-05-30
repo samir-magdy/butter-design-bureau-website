@@ -28,6 +28,16 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "description",
+      type: "text",
+      rows: 4,
+    }),
+    defineField({
+      name: "gallery",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+    }),
+    defineField({
       name: "order",
       type: "number",
       description: "Controls the display order in the portfolio grid (ascending).",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { urlFor } from "@/lib/sanity/client";
 import type { Project } from "@/lib/data";
 
@@ -7,6 +8,7 @@ type Props = {
 
 export default function ProjectCard({ project }: Props) {
   return (
+    <Link href={`/work/${project.slug}`}>
     <article className="group relative cursor-pointer overflow-hidden">
       <div className="relative aspect-[5/3] w-full">
         <img
@@ -24,5 +26,6 @@ export default function ProjectCard({ project }: Props) {
         </p>
       </div>
     </article>
+    </Link>
   );
 }
