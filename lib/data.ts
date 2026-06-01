@@ -7,5 +7,6 @@ export type Project = {
   category: string;
   coverImage: SanityImageSource;
   description?: string;
+  genre?: string;
   gallery?: SanityImageSource[];
 };

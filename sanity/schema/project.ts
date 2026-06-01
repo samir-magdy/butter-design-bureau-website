@@ -38,6 +38,11 @@ export const project = defineType({
       of: [{ type: "image", options: { hotspot: true } }],
     }),
     defineField({
+      name: "genre",
+      type: "string",
+      description: "Disciplines shown on hover, e.g. Branding, Strategy, Creative Direction",
+    }),
+    defineField({
       name: "order",
       type: "number",
       description: "Controls the display order in the portfolio grid (ascending).",

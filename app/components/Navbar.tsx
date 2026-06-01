@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const navLinks = [
   { label: "Portfolio", href: "/" },
+  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -16,7 +17,7 @@ export default function Navbar() {
     <header className="relative flex max-w-[100rem] mx-auto items-center justify-between px-6 py-6 sm:px-10">
       {/* Logo placeholder */}
       <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-        <div className="h-14 w-32 rounded bg-neutral-200" />
+        <img src="/logo.jpeg" alt="Logo" className="h-14 w-auto object-contain" />
       </Link>
 
       {/* Desktop nav */}

@@ -7,6 +7,8 @@ export const projectsQuery = defineQuery(`
     "slug": slug.current,
     category,
     coverImage,
+    description,
+    genre,
   }
 `);
 
