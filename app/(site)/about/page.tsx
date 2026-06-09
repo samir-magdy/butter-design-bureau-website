@@ -4,11 +4,11 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto max-w-[100rem] px-6 py-24 sm:px-10">
+    <main className="mx-auto max-w-[100rem] px-6 pb-24 pt-4 sm:px-10">
       <span className="text-sm uppercase tracking-[0.3em] text-neutral-500">
         About
       </span>
-      <h1 className="mt-3 text-7xl font-extralight tracking-tight text-neutral-900">
+      <h1 className="mt-3 text-7xl font-light tracking-tight text-neutral-900">
         Who we are
       </h1>
 

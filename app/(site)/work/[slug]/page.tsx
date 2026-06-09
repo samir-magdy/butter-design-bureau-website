@@ -33,9 +33,9 @@ export default async function ProjectPage({
   return (
     <main className="mx-auto max-w-[100rem] px-6 py-20 sm:px-10">
       <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
-        {project.category}
+        {project.categories?.join(', ')}
       </p>
-      <h1 className="mt-2 text-5xl font-extralight tracking-tight text-neutral-900">
+      <h1 className="mt-2 text-5xl font-light tracking-tight text-neutral-900">
         {project.title}
       </h1>
       {project.description && (

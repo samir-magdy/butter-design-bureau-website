@@ -5,10 +5,9 @@ export const projectsQuery = defineQuery(`
     _id,
     title,
     "slug": slug.current,
-    category,
     coverImage,
     description,
-    genre,
+    categories,
   }
 `);
 
@@ -21,9 +20,9 @@ export const projectBySlugQuery = defineQuery(`
     _id,
     title,
     "slug": slug.current,
-    category,
     coverImage,
     description,
+    categories,
     gallery,
   }
 `);

@@ -4,9 +4,8 @@ export type Project = {
   _id: string;
   title: string;
   slug: string;
-  category: string;
   coverImage: SanityImageSource;
   description?: string;
-  genre?: string;
+  categories?: string[];
   gallery?: SanityImageSource[];
 };

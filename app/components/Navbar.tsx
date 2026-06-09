@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { SiBehance, SiInstagram } from "react-icons/si";
+
 
 const navLinks = [
   { label: "Portfolio", href: "/" },
@@ -14,27 +16,60 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="relative flex max-w-[100rem] mx-auto items-center justify-between px-6 py-6 sm:px-10">
-      {/* Logo placeholder */}
-      <Link href="/" aria-label="Home" onClick={() => setOpen(false)}>
-        <img src="/logo.jpeg" alt="Logo" className="h-14 w-auto object-contain" />
+    <header className="relative flex mx-auto items-center justify-between px-6 py-6 sm:px-10">
+      {/* Wordmark */}
+      <Link
+        href="/"
+        aria-label="Home"
+        onClick={() => setOpen(false)}
+        className="group flex flex-col leading-none select-none"
+      >
+        <span className="text-[2rem] font-black tracking-[-0.03em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
+          Butter
+        </span>
+        <span className="text-[0.9rem] font-medium uppercase tracking-[0.22em] text-neutral-400">
+          Design Studio
+        </span>
       </Link>
 
       {/* Desktop nav */}
-      <nav aria-label="Main navigation" className="hidden md:block">
-        <ul className="flex items-center gap-8">
-          {navLinks.map(({ label, href }) => (
-            <li key={label}>
-              <Link
-                href={href}
-                className="text-[2rem] text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className="hidden md:flex items-center gap-8">
+        <nav aria-label="Main navigation">
+          <ul className="flex items-center gap-8">
+            {navLinks.map(({ label, href }) => (
+              <li key={label}>
+                <Link
+                  href={href}
+                  className="text-[2rem] text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="https://www.behance.net/amrksherif"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Behance"
+            className="text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+          >
+            <SiBehance size={20} />
+          </a>
+          <a
+            href="https://www.instagram.com/amr.sherif/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+          >
+            <SiInstagram size={20} />
+          </a>
+        </div>
+      </div>
 
       {/* Hamburger button */}
       <button
@@ -72,6 +107,26 @@ export default function Navbar() {
               ))}
             </ul>
           </nav>
+          <div className="flex items-center gap-5 px-6 pb-6">
+            <a
+              href="https://www.behance.net/amrksherif"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Behance"
+              className="text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+            >
+              <SiBehance size={22} />
+            </a>
+            <a
+              href="https://www.instagram.com/amr.sherif/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+            >
+              <SiInstagram size={22} />
+            </a>
+          </div>
         </div>
       )}
     </header>

@@ -1,4 +1,4 @@
-import Footer from "@/app/components/Footer";
+import BackToTop from "@/app/components/BackToTop";
 import Navbar from "@/app/components/Navbar";
 
 export default function SiteLayout({
@@ -12,7 +12,7 @@ export default function SiteLayout({
         <Navbar />
         {children}
       </div>
-      <Footer />
+      <BackToTop />
     </div>
   );
 }

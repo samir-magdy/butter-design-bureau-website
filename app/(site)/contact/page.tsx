@@ -10,7 +10,7 @@ export default function ContactPage() {
       <span className="text-xs uppercase tracking-[0.3em] text-neutral-500">
         Get in touch
       </span>
-      <h1 className="mt-3 text-5xl font-extralight tracking-tight text-neutral-900">
+      <h1 className="mt-3 text-5xl font-light tracking-tight text-neutral-900">
         Contact
       </h1>
       <p className="mt-4 text-sm text-neutral-500">

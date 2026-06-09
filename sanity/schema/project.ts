@@ -17,11 +17,6 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "category",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "coverImage",
       type: "image",
       options: { hotspot: true },
@@ -33,14 +28,23 @@ export const project = defineType({
       rows: 4,
     }),
     defineField({
+      name: "extendedDescription",
+      title: "Extended Description",
+      type: "text",
+      rows: 8,
+      description: "Full project write-up shown on the detail page, separate from the short cover description.",
+    }),
+    defineField({
       name: "gallery",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
     }),
     defineField({
-      name: "genre",
-      type: "string",
-      description: "Disciplines shown on hover, e.g. Branding, Strategy, Creative Direction",
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Disciplines for this project, e.g. Branding, Strategy, Social Media",
     }),
     defineField({
       name: "order",

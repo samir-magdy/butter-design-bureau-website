@@ -1,4 +1,4 @@
-import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 import HeroSection from "./components/HeroSection";
 import PortfolioGrid from "./components/PortfolioGrid";
 
@@ -10,7 +10,7 @@ export default function Home() {
       <HeroSection />
       <div className="h-screen" aria-hidden="true" />
       <PortfolioGrid />
-      <Footer />
+      <BackToTop />
     </>
   );
 }

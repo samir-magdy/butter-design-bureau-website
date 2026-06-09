@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: Props) {
         <img
           src={urlFor(project.coverImage).width(900).height(540).auto("format").url()}
           alt={project.title}
-          className="object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
           sizes="(min-width: 640px) 50vw, 100vw"
         />
       </div>
@@ -25,19 +25,15 @@ export default function ProjectCard({ project }: Props) {
         </h3>
         <div className="mt-auto flex items-end justify-between gap-4">
           {project.description && (
-            <p className="max-w-[55%] text-[0.65rem] uppercase leading-relaxed tracking-wider text-black">
+            <p className="max-w-[55%] text-sm uppercase leading-relaxed tracking-wider text-black">
               {project.description}
             </p>
           )}
-          {/* Uncomment when ready */}
-          {/* {project.genre && (
-            <p className="ml-auto text-right text-[0.65rem] uppercase tracking-wider text-neutral-400">
-              {project.genre}
+          {project.categories && project.categories.length > 0 && (
+            <p className="ml-auto text-right text-xs uppercase tracking-wider text-neutral-700">
+              {project.categories.join(', ')}
             </p>
-          )} */}
-            <p className="ml-auto text-right text-[0.65rem] uppercase tracking-wider text-neutral-700">
-              Best Design Ever Bro
-            </p>
+          )}
         </div>
       </div>
     </article>
