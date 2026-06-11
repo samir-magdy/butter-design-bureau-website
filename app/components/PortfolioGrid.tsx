@@ -12,8 +12,8 @@ export default async function PortfolioGrid() {
     <main className="relative z-10 bg-white">
       <MarqueeTrack />
       <Navbar />
-      <div className="mx-auto px-6 py-20">
-        <h2 className="mb-12 text-3xl font-light text-neutral-900">
+      <div className="mx-auto sm:py-20">
+        <h2 className="mb-4 sm:mb-8 ps-6 sm:ps-10 text-xl sm:text-3xl font-light text-neutral-900">
           Selected Work
         </h2>
 

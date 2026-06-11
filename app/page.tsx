@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <div className="h-screen" aria-hidden="true" />
+      <div className="h-dvh" aria-hidden="true" />
       <PortfolioGrid />
       <BackToTop />
     </>

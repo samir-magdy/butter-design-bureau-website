@@ -53,7 +53,7 @@ export default function MarqueeTrack() {
   }, []);
 
   return (
-    <div className="overflow-hidden border-b border-t border-black/60 py-3">
+    <div className="overflow-hidden border-b border-black/60 py-3">
       <div ref={innerRef} className="flex">
         <Track />
         <Track />

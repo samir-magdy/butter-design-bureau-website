@@ -14,7 +14,7 @@ export default function Gallery({ slides }: Props) {
 
   return (
     <>
-      <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="mt-12 grid sm:grid-cols-2 gap-3">
         {slides.map((slide, i) => (
           <button
             key={i}
@@ -22,12 +22,12 @@ export default function Gallery({ slides }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className="overflow-hidden focus:outline-none"
+            className="overflow-hidden focus:outline-none cursor-pointer"
           >
             <img
               src={slide.src}
               alt=""
-              className="aspect-[4/3] w-full object-cover transition-opacity duration-300 hover:opacity-80"
+              className="aspect-4/3 w-full object-cover transition-opacity duration-300 hover:opacity-80"
             />
           </button>
         ))}

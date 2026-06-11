@@ -31,18 +31,22 @@ export default async function ProjectPage({
   }));
 
   return (
-    <main className="mx-auto max-w-[100rem] px-6 py-20 sm:px-10">
-      <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
-        {project.categories?.join(', ')}
-      </p>
-      <h1 className="mt-2 text-5xl font-light tracking-tight text-neutral-900">
+    <main className="mx-auto py-20">
+      <div className="px-10">
+      <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
         {project.title}
       </h1>
+      <div className="flex justify-between items-end">
       {project.description && (
         <p className="mt-6 max-w-2xl text-neutral-500 leading-relaxed">
           {project.description}
         </p>
       )}
+        <p className="text-xs sm:text-[1rem] uppercase tracking-[0.2em] text-neutral-400">
+        {project.categories?.join(', ')}
+      </p>
+      </div>
+      </div>
       <Gallery slides={allImages} />
     </main>
   );
