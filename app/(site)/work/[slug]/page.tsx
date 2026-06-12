@@ -48,8 +48,8 @@ export default async function ProjectPage({
   }));
 
   return (
-    <main className="mx-auto pt-20 pb-4">
-      <div className="px-10">
+    <main className="mx-auto pb-4">
+      <div className="px-6 sm:px-10">
       <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
         {project.title}
       </h1>

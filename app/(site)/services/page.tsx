@@ -54,7 +54,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="mx-auto max-w-[100rem] px-6 py-20 pt-4 sm:px-10 pb-16">
+    <main className="mx-auto max-w-[100rem] px-6 sm:px-10 pb-8 sm:pb-16">
       <span className="text-sm uppercase tracking-[0.3em] text-neutral-500">
         What we do
       </span>
@@ -62,7 +62,7 @@ export default function ServicesPage() {
         Services
       </h1>
 
-      <div className="mt-16 grid grid-cols-1 gap-px border border-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-px border border-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
         {services.map(({ title, description }) => (
           <div key={title} className="flex flex-col gap-4 bg-white p-10">
             <h2 className="text-base font-medium uppercase tracking-[0.15em] text-neutral-900">

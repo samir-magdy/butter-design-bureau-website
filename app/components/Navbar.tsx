@@ -37,7 +37,6 @@ export default function Navbar() {
 
   return (
     <header className="relative flex mx-auto items-center justify-between px-6 py-6 sm:px-10">
-      {/* Wordmark */}
       <Link
         href="/"
         aria-label="Home"
@@ -47,12 +46,8 @@ export default function Navbar() {
         <span className="text-2xl sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
           Butter.
         </span>
-        {/* <span className="text-[1.1rem] font-medium tracking-[0.1em] text-black/80">
-          Design Studio.
-        </span> */}
       </Link>
 
-      {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-8">
         <nav aria-label="Main navigation">
           <ul className="flex items-center gap-8">
@@ -96,7 +91,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Hamburger button */}
       <button
         className="flex md:hidden flex-col justify-center items-center gap-1.5 w-10 h-10"
         aria-label={open ? "Close menu" : "Open menu"}
@@ -114,7 +108,6 @@ export default function Navbar() {
         />
       </button>
 
-      {/* Mobile menu overlay */}
       {open && (
         <div className="absolute top-full left-0 right-0 z-50 bg-white border-t border-neutral-100 shadow-md md:hidden">
           <nav aria-label="Mobile navigation">

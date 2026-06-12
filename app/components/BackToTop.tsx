@@ -2,7 +2,7 @@
 
 export default function BackToTop() {
   return (
-    <div className="relative z-10 flex justify-center py-8 bg-white">
+    <div className="relative z-10 flex justify-center py-12 pb-8 bg-white">
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="group border px-4 py-2 flex items-center gap-3 text-sm uppercase tracking-[0.3em] text-neutral-800 hover:text-black transition-colors duration-200 cursor-pointer"
