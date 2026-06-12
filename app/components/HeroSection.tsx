@@ -26,7 +26,7 @@ export default function HeroSection() {
       <div className="overflow-hidden lg:overflow-visible flex justify-center">
         <Image
           className="max-w-none w-auto h-[calc(100dvh-8.33vw)] lg:max-w-full lg:w-full lg:h-auto cover-bottom"
-          src="/printables-cover.png"
+          src="/printables-cover.webp"
           alt=""
           width={4000}
           height={2250}
