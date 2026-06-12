@@ -13,8 +13,12 @@ const aeonik = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Amr — Portfolio",
-  description: "Design & development portfolio",
+  title: {
+    template: "%s | Butter Design Bureau",
+    default: "Butter Design Bureau",
+  },
+  description:
+    "Butter Design Bureau is a visual branding studio crafting internationally competitive brand identities, communication systems, and visual experiences. Based in Cairo. Built for the world.",
 };
 
 export default function RootLayout({

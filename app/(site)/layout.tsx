@@ -1,5 +1,5 @@
-import BackToTop from "@/app/components/BackToTop";
 import Navbar from "@/app/components/Navbar";
+import SiteByCredit from "@/app/components/SiteByCredit";
 
 export default function SiteLayout({
   children,
@@ -12,7 +12,7 @@ export default function SiteLayout({
         <Navbar />
         {children}
       </div>
-      <BackToTop />
+      <SiteByCredit />
     </div>
   );
 }

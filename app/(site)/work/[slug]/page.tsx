@@ -3,8 +3,25 @@ import { client, urlFor } from "@/lib/sanity/client";
 import { allSlugsQuery, projectBySlugQuery } from "@/lib/sanity/queries";
 import type { Project } from "@/lib/data";
 import Gallery from "@/app/components/Gallery";
+import BackToTop from "@/app/components/BackToTop";
 
 export const revalidate = 60;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = await client.fetch<Project | null>(projectBySlugQuery, { slug });
+  if (!project) return {};
+  return {
+    title: project.title,
+    description:
+      project.description ??
+      `A ${project.categories?.join(" & ") ?? "branding"} project by Butter Design Bureau.`,
+  };
+}
 
 export async function generateStaticParams() {
   const docs = await client.fetch<{ slug: string }[]>(allSlugsQuery);
@@ -31,14 +48,14 @@ export default async function ProjectPage({
   }));
 
   return (
-    <main className="mx-auto py-20">
+    <main className="mx-auto pt-20 pb-4">
       <div className="px-10">
       <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
         {project.title}
       </h1>
-      <div className="flex justify-between items-end">
+      <div className="sm:flex sm:justify-between items-end">
       {project.description && (
-        <p className="mt-6 max-w-2xl text-neutral-500 leading-relaxed">
+        <p className="my-6 sm:mt-6 max-w-2xl text-neutral-500 leading-relaxed">
           {project.description}
         </p>
       )}
@@ -48,6 +65,7 @@ export default async function ProjectPage({
       </div>
       </div>
       <Gallery slides={allImages} />
+      <BackToTop />
     </main>
   );
 }

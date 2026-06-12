@@ -1,5 +1,7 @@
 export const metadata = {
   title: "Services",
+  description:
+    "From brand strategy and identity design to motion, packaging, and digital experience — explore the full range of creative services offered by Butter Design Bureau.",
 };
 
 const services = [
@@ -52,7 +54,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="mx-auto max-w-[100rem] px-6 py-20 pt-4 sm:px-10">
+    <main className="mx-auto max-w-[100rem] px-6 py-20 pt-4 sm:px-10 pb-16">
       <span className="text-sm uppercase tracking-[0.3em] text-neutral-500">
         What we do
       </span>

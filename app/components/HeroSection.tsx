@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import HeroBanner from "./HeroBanner";
+import Image from "next/image"
 
 export default function HeroSection() {
   const ref = useRef<HTMLElement>(null);
@@ -22,11 +23,14 @@ export default function HeroSection() {
       style={{ willChange: "transform" }}
     >
       <HeroBanner />
-      <div className="ps-0.5 overflow-hidden lg:overflow-visible flex justify-center">
-        <img
-          className="max-w-none w-auto h-[calc(100dvh-8.33vw)] lg:max-w-full lg:w-full lg:h-auto"
+      <div className="overflow-hidden lg:overflow-visible flex justify-center">
+        <Image
+          className="max-w-none w-auto h-[calc(100dvh-8.33vw)] lg:max-w-full lg:w-full lg:h-auto cover-bottom"
           src="/printables-cover.png"
           alt=""
+          width={4000}
+          height={2250}
+          priority
         />
       </div>
     </section>
