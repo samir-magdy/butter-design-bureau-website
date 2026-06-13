@@ -66,7 +66,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between pt-6">
+      <div className="flex items-center justify-between pt-6 pb-2">
         <p className="text-[0.65rem] uppercase sm:text-sm tracking-[0.25em] text-neutral-900">
           Cairo, Egypt
         </p>

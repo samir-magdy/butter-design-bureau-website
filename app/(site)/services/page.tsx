@@ -54,7 +54,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="mx-auto max-w-[100rem] px-6 sm:px-10 pb-8 sm:pb-16">
+    <main className="mx-auto max-w-[100rem] px-6 sm:px-10 pb-8 sm:pb-10">
       <span className="text-sm uppercase tracking-[0.3em] text-neutral-500">
         What we do
       </span>
