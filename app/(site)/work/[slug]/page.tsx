@@ -33,9 +33,7 @@ export default async function ProjectPage({
 
   if (!project) notFound();
 
-  const allImages = [project.coverImage, ...(project.gallery ?? [])].map(
-    (src) => ({ src })
-  );
+  const allImages = project.gallery ?? [];
 
   return (
     <main className="mx-auto pb-4">
@@ -54,7 +52,7 @@ export default async function ProjectPage({
           </p>
         </div>
       </div>
-      <Gallery slides={allImages} masonry={project.id === "hamisa"} />
+      <Gallery slides={allImages} gridCols={project.id === "hamisa" ? 6 : 2} gapless={project.id === "think"} />
       <BackToTop />
     </main>
   );

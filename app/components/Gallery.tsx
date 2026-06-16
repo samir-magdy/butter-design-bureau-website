@@ -4,17 +4,29 @@ import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Video from "yet-another-react-lightbox/plugins/video";
 import "yet-another-react-lightbox/styles.css";
+import type { GalleryItem } from "@/lib/data";
 
 type Props = {
-  slides: { src: string }[];
-  masonry?: boolean;
+  slides: GalleryItem[];
+  gridCols?: 2 | 6;
+  gapless?: boolean;
 };
+
+function getColSpan(cols: 1 | 2 | 3 | undefined, gridCols: 2 | 6): string {
+  if (gridCols === 6) {
+    if (cols === 3) return "col-span-2"; // 3 per row
+    if (cols === 2) return "col-span-6"; // full width
+    return "col-span-3";                 // default: 2 per row
+  }
+  if (cols === 2) return "col-span-2";   // full width
+  return "col-span-1";                   // default: 2 per row
+}
 
 function isVideo(src: string) {
   return src.endsWith(".mp4") || src.endsWith(".webm");
 }
 
-export default function Gallery({ slides, masonry }: Props) {
+export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -28,9 +40,11 @@ export default function Gallery({ slides, masonry }: Props) {
       : { src: slide.src }
   );
 
+  const gridClass = gridCols === 6 ? "sm:grid-cols-6" : "sm:grid-cols-2";
+
   return (
     <>
-      <div className={masonry ? "mt-12 columns-2 gap-3" : "mt-12 grid sm:grid-cols-2 gap-3"}>
+      <div className={`mt-12 grid items-start ${gridClass}${gapless ? "" : " gap-3"}`}>
         {slides.map((slide, i) => (
           <button
             key={i}
@@ -38,7 +52,7 @@ export default function Gallery({ slides, masonry }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`overflow-hidden focus:outline-none cursor-pointer${masonry ? " mb-3 break-inside-avoid block w-full" : ""}`}
+            className={`overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols, gridCols)}`}
           >
             {isVideo(slide.src) ? (
               <video
@@ -47,13 +61,13 @@ export default function Gallery({ slides, masonry }: Props) {
                 loop
                 muted
                 playsInline
-                className={`w-full object-cover transition-opacity duration-300 hover:opacity-80${masonry ? "" : " aspect-5/3"}`}
+                className="block w-full transition-opacity duration-300 hover:opacity-80"
               />
             ) : (
               <img
                 src={slide.src}
                 alt=""
-                className={`w-full object-cover transition-opacity duration-300 hover:opacity-80${masonry ? "" : " aspect-5/3"}`}
+                className="block w-full transition-opacity duration-300 hover:opacity-80"
               />
             )}
           </button>
