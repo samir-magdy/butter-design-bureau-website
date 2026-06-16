@@ -9,8 +9,6 @@ export const metadata = {
     "A visual branding studio creating internationally competitive brand identities, communication systems, and visual experiences. Strategic thinking meets creative excellence.",
 };
 
-export const revalidate = 60;
-
 export default function Home() {
   return (
     <>

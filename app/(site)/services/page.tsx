@@ -40,13 +40,9 @@ const services = [
     description:
       "Designing packaging that combines functionality, aesthetics, and brand expression to create memorable product experiences.",
   },
+
   {
-    title: "Illustration",
-    description:
-      "Crafting custom illustrations that add character, communicate ideas, and enhance brand storytelling.",
-  },
-  {
-    title: "Digital Experience Design",
+    title: "Web Design",
     description:
       "Creating intuitive digital experiences that blend strong visual design with seamless user interaction.",
   },

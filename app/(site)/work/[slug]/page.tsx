@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
-import { client, urlFor } from "@/lib/sanity/client";
-import { allSlugsQuery, projectBySlugQuery } from "@/lib/sanity/queries";
-import type { Project } from "@/lib/data";
+import { projects } from "@/lib/data";
 import Gallery from "@/app/components/Gallery";
 import BackToTop from "@/app/components/BackToTop";
 
-export const revalidate = 60;
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({
   params,
@@ -13,7 +13,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await client.fetch<Project | null>(projectBySlugQuery, { slug });
+  const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
     title: project.title,
@@ -23,48 +23,38 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const docs = await client.fetch<{ slug: string }[]>(allSlugsQuery);
-  return docs.map((d) => ({ slug: d.slug }));
-}
-
 export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = await client.fetch<Project | null>(projectBySlugQuery, {
-    slug,
-  });
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) notFound();
 
-  const allImages = [
-    project.coverImage,
-    ...(project.gallery ?? []),
-  ].map((img) => ({
-    src: urlFor(img).width(1600).auto("format").url(),
-  }));
+  const allImages = [project.coverImage, ...(project.gallery ?? [])].map(
+    (src) => ({ src })
+  );
 
   return (
     <main className="mx-auto pb-4">
       <div className="px-6 sm:px-10">
-      <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
-        {project.title}
-      </h1>
-      <div className="sm:flex sm:justify-between items-end">
-      {project.description && (
-        <p className="my-6 sm:mt-6 max-w-2xl text-neutral-500 leading-relaxed">
-          {project.description}
-        </p>
-      )}
-        <p className="text-xs sm:text-[1rem] uppercase tracking-[0.2em] text-neutral-400">
-        {project.categories?.join(', ')}
-      </p>
+        <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
+          {project.title}
+        </h1>
+        <div className="sm:flex sm:justify-between items-end">
+          {project.description && (
+            <p className="mt-6 max-w-2xl text-neutral-500 leading-relaxed">
+              {project.description}
+            </p>
+          )}
+          <p className="text-xs sm:text-[1rem] uppercase tracking-[0.2em] text-neutral-400">
+            {project.categories?.join(", ")}
+          </p>
+        </div>
       </div>
-      </div>
-      <Gallery slides={allImages} />
+      <Gallery slides={allImages} masonry={project.id === "hamisa"} />
       <BackToTop />
     </main>
   );

@@ -19,6 +19,13 @@ export const metadata: Metadata = {
   },
   description:
     "Butter Design Bureau is a visual branding studio crafting internationally competitive brand identities, communication systems, and visual experiences. Based in Cairo. Built for the world.",
+  openGraph: {
+    images: [{ url: "/open-graph.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/open-graph.png"],
+  },
 };
 
 export default function RootLayout({

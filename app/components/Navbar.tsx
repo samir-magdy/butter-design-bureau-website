@@ -43,19 +43,22 @@ export default function Navbar() {
         onClick={() => setOpen(false)}
         className="group flex flex-col leading-none select-none"
       >
-        <span className="text-2xl sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
+        <span className="text-2xl leading-8 sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
           Butter.
+        </span>
+        <span className="text-2xl sm:text-[1.2rem] tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
+          Design Bureau.
         </span>
       </Link>
 
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-12">
         <nav aria-label="Main navigation">
-          <ul className="flex items-center gap-8">
+          <ul className="flex items-center gap-12">
             {navLinks.map(({ label, href }) => (
               <li key={label}>
                 <Link
                   href={href}
-                  className="text-[2rem] text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
+                  className="text-[1.75rem] text-neutral-500 transition-colors duration-200 hover:text-neutral-900"
                 >
                   {label}
                 </Link>

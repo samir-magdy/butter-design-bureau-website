@@ -1,13 +1,9 @@
-import { client } from "@/lib/sanity/client";
-import { projectsQuery } from "@/lib/sanity/queries";
-import type { Project } from "@/lib/data";
+import { projects } from "@/lib/data";
 import Navbar from "./Navbar";
 import ProjectCard from "./ProjectCard";
 import MarqueeTrack from "./MarqueeTrack";
 
-export default async function PortfolioGrid() {
-  const projects = await client.fetch<Project[]>(projectsQuery);
-
+export default function PortfolioGrid() {
   return (
     <section className="relative z-10 bg-white">
       <MarqueeTrack />
@@ -19,7 +15,7 @@ export default async function PortfolioGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2">
           {projects.map((project) => (
-            <ProjectCard key={project._id} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
