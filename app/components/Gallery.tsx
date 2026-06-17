@@ -40,7 +40,7 @@ export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
       : { src: slide.src }
   );
 
-  const gridClass = gridCols === 6 ? "sm:grid-cols-6" : "sm:grid-cols-2";
+  const gridClass = gridCols === 6 ? "sm:grid-cols-6" : gapless ? "grid-cols-2" : "";
 
   return (
     <>

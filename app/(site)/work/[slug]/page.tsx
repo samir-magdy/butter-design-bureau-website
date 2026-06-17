@@ -43,7 +43,7 @@ export default async function ProjectPage({
         </h1>
         <div className="sm:flex sm:justify-between items-end">
           {project.description && (
-            <p className="mt-6 max-w-2xl text-neutral-500 leading-relaxed">
+            <p className="my-6 sm:mt-6 sm:mb-0 max-w-2xl text-neutral-500 leading-relaxed">
               {project.description}
             </p>
           )}
