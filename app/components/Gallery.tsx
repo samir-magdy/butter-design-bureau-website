@@ -11,7 +11,7 @@ type Props = {
   gapless?: boolean;
 };
 
-function getColSpan(cols: 2 | 6 | undefined): string {
+function getColSpan(cols: 2 | 3 | 6 | undefined): string {
   if (cols === 6) return "col-span-2 sm:col-span-6";
   if (cols === 2) return "col-span-1 sm:col-span-2";
   return "col-span-1 sm:col-span-3";
@@ -37,7 +37,7 @@ export default function Gallery({ slides, gapless }: Props) {
 
   return (
     <>
-      <div className={`mt-12 grid items-start grid-cols-2 sm:grid-cols-6${gapless ? "" : " gap-3"}`}>
+      <div className={`mt-12 grid items-start grid-cols-2 sm:grid-cols-6 ${gapless ? "" : "gap-3"}`}>
         {slides.map((slide, i) => (
           <button
             key={i}

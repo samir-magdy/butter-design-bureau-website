@@ -1,4 +1,4 @@
-export type GalleryItem = { src: string; cols?: 2 | 6 };
+export type GalleryItem = { src: string; cols?: 2 | 3 | 6 };
 
 export type Project = {
   id: string;
@@ -126,7 +126,7 @@ export const projects: Project[] = [
       "G Studio is a visualization studio that transforms ideas into vivid visual experiences, inspired by the pixel—the fundamental building block behind every image and every story.",
     categories: ["strategy", "rebranding", "social media"],
     gallery: [
-      { src: "/project-images/g-studio/g-studio-1.gif", cols: 6 },
+      { src: "/project-images/g-studio/g-studio-1.gif" },
       { src: "/project-images/g-studio/g-studio-2.webp" },
       { src: "/project-images/g-studio/video-g-studio.mp4" },
       { src: "/project-images/g-studio/g-studio-6.webp" },
