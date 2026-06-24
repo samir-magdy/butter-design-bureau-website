@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 // import HeroBanner from "./HeroBanner";
 
-export default function HeroSection() {
+export default function HeroSection({ onReady }: { onReady?: () => void }) {
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -30,15 +30,16 @@ export default function HeroSection() {
           loop
           muted
           playsInline
+          onCanPlay={onReady}
         />
       </div>
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-black/80 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bottom-0 flex items-center justify-between pointer-events-none">
-        <div className="leading-[1.05] ps-16 absolute bottom-28">
-          <p className="font-bold text-white mb-12 text-2xl lg:text-[6vw]">Butter.</p>
+        <div className="leading-[1.05] ps-6 sm:ps-16 absolute bottom-24 sm:bottom-28">
+          <p className="font-bold text-white mb-6 sm:mb-12 text-[2rem] lg:text-[6vw]">Butter.</p>
           {/* <p className="font-light text-white m-0 text-[1rem] lg:text-[2.25vw]">Design Bureau.</p> */}
-        <p className="text-start text-white m-0 text-[0.85rem] lg:text-[2.5vw]">
+        <p className="text-start text-white m-0 text-[1.5rem] lg:text-[2.5vw]">
           We build brands that <strong>feel refined</strong>
           <br />
           and <strong>connect effortlessly.</strong>

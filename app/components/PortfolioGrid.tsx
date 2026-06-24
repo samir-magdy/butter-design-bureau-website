@@ -5,7 +5,7 @@ import MarqueeTrack from "./MarqueeTrack";
 
 export default function PortfolioGrid() {
   return (
-    <section className="relative z-10 bg-white">
+    <section id="portfolio" className="relative z-10 bg-white">
       <MarqueeTrack />
       <Navbar />
       <div className="mx-auto sm:pt-20 sm:pb-0">

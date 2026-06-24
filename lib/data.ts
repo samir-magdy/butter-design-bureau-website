@@ -1,4 +1,4 @@
-export type GalleryItem = { src: string; cols?: 1 | 2 | 3 };
+export type GalleryItem = { src: string; cols?: 2 | 6 };
 
 export type Project = {
   id: string;
@@ -22,9 +22,9 @@ export const projects: Project[] = [
     gallery: [
       { src: "/project-images/hamisa/hamisa-img-2.webp" },          // 1.34
       { src: "/project-images/hamisa/hamisa-img-17.webp" },         // 1.34
-      { src: "/project-images/hamisa/hamisa-img-1.webp", cols: 3 }, // 1.33
-      { src: "/project-images/hamisa/hamisa-img-4.webp", cols: 3 }, // 1.33
-      { src: "/project-images/hamisa/hamisa-img-11.webp", cols: 3 },// 1.33
+      { src: "/project-images/hamisa/hamisa-img-1.webp", cols: 2 }, // 1.33
+      { src: "/project-images/hamisa/hamisa-img-4.webp", cols: 2 }, // 1.33
+      { src: "/project-images/hamisa/hamisa-img-11.webp", cols: 2 },// 1.33
       { src: "/project-images/hamisa/hamisa-img-9.webp" },          // 1.50
       { src: "/project-images/hamisa/hamisa-img-3.webp" },          // 1.50
       { src: "/project-images/hamisa/hamisa-img-5.webp" },          // 1.33
@@ -35,9 +35,9 @@ export const projects: Project[] = [
       { src: "/project-images/hamisa/hamisa-img-16.webp" },         // 1.81
       { src: "/project-images/hamisa/hamisa-img-10.webp" },         // 1.00
       { src: "/project-images/hamisa/hamisa-img-13.webp" },         // 0.97
-      { src: "/project-images/hamisa/hamisa-img-12.webp", cols: 3 },// 0.75
-      { src: "/project-images/hamisa/hamisa-img-14.webp", cols: 3 },// 0.71
-      { src: "/project-images/hamisa/hamisa-img-15.webp", cols: 3 },// 0.80
+      { src: "/project-images/hamisa/hamisa-img-12.webp", cols: 2 },// 0.75
+      { src: "/project-images/hamisa/hamisa-img-14.webp", cols: 2 },// 0.71
+      { src: "/project-images/hamisa/hamisa-img-15.webp", cols: 2 },// 0.80
     ],
   },
   {
@@ -69,12 +69,12 @@ export const projects: Project[] = [
       "Solly Park is a vibrant family entertainment destination where fun, adventure, and togetherness come to life.",
     categories: ["strategy", "brand identity", "character design", "package design"],
     gallery: [
-      { src: "/project-images/solly-park/solly-park-8.webp", cols: 2},
+      { src: "/project-images/solly-park/solly-park-8.webp", cols: 6},
       { src: "/project-images/solly-park/solly-park-1.webp" },
       { src: "/project-images/solly-park/solly-park-2.webp" },
       { src: "/project-images/solly-park/solly-park-3.webp" },
       { src: "/project-images/solly-park/solly-park-4.webp" },
-      { src: "/project-images/solly-park/solly-park-9.webp", cols: 2 },
+      { src: "/project-images/solly-park/solly-park-9.webp", cols: 6 },
       { src: "/project-images/solly-park/solly-park-5.webp" },
       { src: "/project-images/solly-park/solly-park-6.webp" },
       { src: "/project-images/solly-park/solly-park-7.webp" },
@@ -91,11 +91,11 @@ export const projects: Project[] = [
     gallery: [
       { src: "/project-images/gallium/gallium-1.webp" },
       { src: "/project-images/gallium/gallium-2.webp" },
-      { src: "/project-images/gallium/gallium-3.webp" },
-      { src: "/project-images/gallium/gallium-4.webp" },
+      { src: "/project-images/gallium/gallium-3.webp"  },
+      { src: "/project-images/gallium/gallium-4.webp"  },
       { src: "/project-images/gallium/gallium-5.webp" },
       { src: "/project-images/gallium/gallium-6.webp" },
-      { src: "/project-images/gallium/gallium-7.webp" },
+      { src: "/project-images/gallium/gallium-7.webp", cols: 6 },
     ],
   },
   {
@@ -107,7 +107,7 @@ export const projects: Project[] = [
       "A project commissioned by and developed in collaboration with STUDIO DAADOU.",
     categories: ["strategy", "brand identity", "visual system"],
     gallery: [
-      { src: "/project-images/makanat/makanat-6.webp", cols: 2 },
+      { src: "/project-images/makanat/makanat-6.webp", cols: 6 },
       { src: "/project-images/makanat/makanat-1.webp" },
       { src: "/project-images/makanat/makanat-2.webp" },
       { src: "/project-images/makanat/makanat-3.webp" },
@@ -126,13 +126,13 @@ export const projects: Project[] = [
       "G Studio is a visualization studio that transforms ideas into vivid visual experiences, inspired by the pixel—the fundamental building block behind every image and every story.",
     categories: ["strategy", "rebranding", "social media"],
     gallery: [
-      { src: "/project-images/g-studio/g-studio-1.gif" },
+      { src: "/project-images/g-studio/g-studio-1.gif", cols: 6 },
       { src: "/project-images/g-studio/g-studio-2.webp" },
       { src: "/project-images/g-studio/video-g-studio.mp4" },
-      { src: "/project-images/g-studio/g-studio-3.webp" },
-      { src: "/project-images/g-studio/g-studio-4.webp" },
-      { src: "/project-images/g-studio/g-studio-5.webp" },
       { src: "/project-images/g-studio/g-studio-6.webp" },
+      { src: "/project-images/g-studio/g-studio-4.webp" },
+      { src: "/project-images/g-studio/g-studio-3.webp" },
+      // { src: "/project-images/g-studio/g-studio-5.webp" },
     ],
   },
   {
@@ -146,16 +146,16 @@ export const projects: Project[] = [
     gallery: [
       { src: "/project-images/printables/printables-img-1.webp" },
       { src: "/project-images/printables/printables-img-2.webp" },
-      { src: "/project-images/printables/printables-img-3.webp" },
-      { src: "/project-images/printables/printables-img-4.webp" },
-      { src: "/project-images/printables/printables-img-5.gif" },
-      { src: "/project-images/printables/printables-img-6.webp" },
-      { src: "/project-images/printables/printables-img-7.gif" },
-      { src: "/project-images/printables/printables-img-8.gif" },
       { src: "/project-images/printables/printables-img-9.webp" },
-      { src: "/project-images/printables/printables-img-10.gif" },
-      { src: "/project-images/printables/printables-img-11.gif" },
-      { src: "/project-images/printables/printables-img-12.gif" },
+      { src: "/project-images/printables/printables-img-6.webp" },
+      { src: "/project-images/printables/printables-img-4.webp", cols: 2 },
+      { src: "/project-images/printables/printables-img-7.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-8.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-10.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-11.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-12.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-5.gif", cols: 2 },
+      { src: "/project-images/printables/printables-img-3.webp", cols: 2 },
     ],
   },
   {
@@ -167,8 +167,8 @@ export const projects: Project[] = [
       "Point is an MEP engineering firm delivering integrated mechanical, electrical, and plumbing solutions that ensure efficiency, performance, and reliability across the built environment.",
     categories: ["strategy", "brand identity", "character design", "package design"],
     gallery: [
-      { src: "/project-images/point/point-img-5.webp", cols: 3 },
-      { src: "/project-images/point/point-img-1.webp", cols: 1 },
+      { src: "/project-images/point/point-img-5.webp", cols: 6 },
+      { src: "/project-images/point/point-img-1.webp" },
       { src: "/project-images/point/point-img-2.webp" },
       { src: "/project-images/point/point-img-3.webp" },
       { src: "/project-images/point/point-img-4.webp" },

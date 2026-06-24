@@ -8,25 +8,20 @@ import type { GalleryItem } from "@/lib/data";
 
 type Props = {
   slides: GalleryItem[];
-  gridCols?: 2 | 6;
   gapless?: boolean;
 };
 
-function getColSpan(cols: 1 | 2 | 3 | undefined, gridCols: 2 | 6): string {
-  if (gridCols === 6) {
-    if (cols === 3) return "col-span-2"; // 3 per row
-    if (cols === 2) return "col-span-6"; // full width
-    return "col-span-3";                 // default: 2 per row
-  }
-  if (cols === 2) return "col-span-2";   // full width
-  return "col-span-1";                   // default: 2 per row
+function getColSpan(cols: 2 | 6 | undefined): string {
+  if (cols === 6) return "col-span-2 sm:col-span-6";
+  if (cols === 2) return "col-span-1 sm:col-span-2";
+  return "col-span-1 sm:col-span-3";
 }
 
 function isVideo(src: string) {
   return src.endsWith(".mp4") || src.endsWith(".webm");
 }
 
-export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
+export default function Gallery({ slides, gapless }: Props) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -40,11 +35,9 @@ export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
       : { src: slide.src }
   );
 
-  const gridClass = gridCols === 6 ? "sm:grid-cols-6" : gapless ? "grid-cols-2" : "";
-
   return (
     <>
-      <div className={`mt-12 grid items-start ${gridClass}${gapless ? "" : " gap-3"}`}>
+      <div className={`mt-12 grid items-start grid-cols-2 sm:grid-cols-6${gapless ? "" : " gap-3"}`}>
         {slides.map((slide, i) => (
           <button
             key={i}
@@ -52,7 +45,7 @@ export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols, gridCols)}`}
+            className={`overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " aspect-square" : ""}`}
           >
             {isVideo(slide.src) ? (
               <video
@@ -61,13 +54,13 @@ export default function Gallery({ slides, gridCols = 2, gapless }: Props) {
                 loop
                 muted
                 playsInline
-                className="block w-full transition-opacity duration-300 hover:opacity-80"
+                className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
               />
             ) : (
               <img
                 src={slide.src}
                 alt=""
-                className="block w-full transition-opacity duration-300 hover:opacity-80"
+                className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
               />
             )}
           </button>

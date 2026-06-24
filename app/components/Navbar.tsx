@@ -26,7 +26,7 @@ function IgGradient({ size }: { size: number }) {
 
 
 const navLinks = [
-  { label: "Portfolio", href: "/" },
+  { label: "Portfolio", href: "/#portfolio" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -67,7 +67,7 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-6 pt-2">
+        <div className="flex items-center gap-6 pt-1">
           <a
             href="https://www.behance.net/amrksherif"
             target="_blank"

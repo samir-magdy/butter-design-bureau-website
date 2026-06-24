@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { projects } from "@/lib/data";
 import Gallery from "@/app/components/Gallery";
 import BackToTop from "@/app/components/BackToTop";
@@ -38,7 +39,16 @@ export default async function ProjectPage({
   return (
     <main className="mx-auto pb-4">
       <div className="px-6 sm:px-10">
-        <h1 className="mt-2 text-5xl font-bold tracking-tight text-neutral-900">
+        <Link
+          href="/#portfolio"
+          className="inline-flex items-center gap-2 mt-2 mb-4 text-sm sm:text-lg text-neutral-400 hover:text-neutral-900 transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Back to Portfolio
+        </Link>
+        <h1 className="mt-0 text-5xl font-bold tracking-tight text-neutral-900">
           {project.title}
         </h1>
         <div className="sm:flex sm:justify-between items-end">
@@ -52,7 +62,10 @@ export default async function ProjectPage({
           </p>
         </div>
       </div>
-      <Gallery slides={allImages} gridCols={project.id === "hamisa" ? 6 : 2} gapless={project.id === "think"} />
+      <Gallery
+        slides={allImages}
+        gapless={project.id === "think"}
+      />
       <BackToTop />
     </main>
   );

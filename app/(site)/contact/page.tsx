@@ -52,13 +52,13 @@ const channels: {
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col pb-10">
+    <main className="flex flex-col">
       <section className="px-8 sm:px-10 lg:px-16 pb-8 border-b border-neutral-200">
         <p className="text-[0.65rem] uppercase tracking-[0.35em] text-neutral-400 mb-2">
           Get in touch
         </p>
         <h1
-          className="font-black tracking-tight text-neutral-900 leading-[1] select-none"
+          className="font-black tracking-tight text-neutral-900 leading-[1] select-none sm:my-4"
           style={{ fontSize: "clamp(3.5rem, 9vw, 6rem)" }}
         >
           Say<br />hello.
@@ -78,9 +78,7 @@ export default function ContactPage() {
           >
             {/* Desktop: index above icon in fixed left column */}
             <div className="hidden sm:flex flex-col items-start justify-center gap-1.5 w-24 shrink-0 select-none">
-              <span className="text-[0.6rem] tracking-[0.3em] uppercase text-neutral-400">
-                {ch.index}
-              </span>
+             
               <Icon size={24} className="text-neutral-400" aria-label={ch.label} />
             </div>
 
@@ -89,7 +87,7 @@ export default function ContactPage() {
               <Icon size={22} className="text-neutral-400 shrink-0" aria-label={ch.label} />
               <span
                 className="font-light text-neutral-900 leading-tight break-all"
-                style={{ fontSize: "clamp(1rem, 5vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1rem, 5vw, 1.25rem)" }}
               >
                 {ch.display}
               </span>
@@ -99,7 +97,7 @@ export default function ContactPage() {
             <div className="hidden sm:block flex-1 min-w-0">
               <span
                 className="block font-light text-neutral-900 leading-none"
-                style={{ fontSize: "clamp(1.4rem, 3.2vw, 3.2rem)" }}
+                style={{ fontSize: "clamp(1.4rem, 3.2vw, 2.4rem)" }}
               >
                 {ch.display}
               </span>
