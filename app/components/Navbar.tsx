@@ -36,14 +36,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="relative flex mx-auto items-center justify-between px-6 py-6 sm:px-10">
+    <header className="relative flex mx-auto items-center justify-between px-4 py-6 sm:px-10">
       <Link
         href="/"
         aria-label="Home"
         onClick={() => setOpen(false)}
         className="group flex flex-col leading-none select-none"
       >
-        <span className="text-2xl leading-8 sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
+        <span className="text-3xl leading-8 sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
           Butter.
         </span>
         <span className="hidden md:block text-2xl sm:text-[1.2rem] tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">

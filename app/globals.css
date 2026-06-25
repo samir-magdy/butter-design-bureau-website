@@ -51,5 +51,5 @@ body {
 /* JS primary path: video ready, or the 6s deadline elapsed. Fades immediately. */
 .loading-gate.dismissed {
   pointer-events: none;
-  animation: gate-dismiss 5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: gate-dismiss 1.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }

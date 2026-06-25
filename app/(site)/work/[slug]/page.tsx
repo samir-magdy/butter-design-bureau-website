@@ -37,14 +37,13 @@ export default async function ProjectPage({
   const allImages = project.gallery ?? [];
 
   return (
-    <main className="mx-auto pb-4">
-      <div className="px-6 sm:px-10">
+    <div className="px-4 sm:px-10 pb-4">
         <Link
           href="/#portfolio"
           className="inline-flex items-center gap-2 mt-2 mb-4 text-sm sm:text-lg text-neutral-400 hover:text-neutral-900 transition-colors"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="sm:pt-0.5 w-3 h-3 sm:w-4 sm:h-4">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
           Back to Portfolio
         </Link>
@@ -61,12 +60,11 @@ export default async function ProjectPage({
             {project.categories?.join(", ")}
           </p>
         </div>
-      </div>
       <Gallery
         slides={allImages}
         gapless={project.id === "think"}
       />
       <BackToTop />
-    </main>
+    </div>
   );
 }

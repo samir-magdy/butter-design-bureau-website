@@ -40,7 +40,6 @@ const services = [
     description:
       "Designing packaging that combines functionality, aesthetics, and brand expression to create memorable product experiences.",
   },
-
   {
     title: "Web Design",
     description:
@@ -50,26 +49,50 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <main className="mx-auto max-w-[100rem] px-6 sm:px-10 pb-8 sm:pb-10">
-      <span className="text-sm uppercase tracking-[0.3em] text-neutral-500">
-        What we do
-      </span>
-      <h1 className="mt-3 text-7xl font-light tracking-tight text-neutral-900">
-        Services
-      </h1>
+    <div className="flex flex-col px-6 sm:px-10 lg:px-16 pb-10">
+      <section className="pb-4 sm:pb-16 sm:pt-10">
+        <h1
+          className="font-black tracking-tight text-neutral-900 leading-[0.88] select-none"
+          style={{ fontSize: "clamp(3.2rem, 8.5vw, 7rem)" }}
+        >
+          What we do.
+        </h1>
+      </section>
 
-      <div className="mt-10 grid grid-cols-1 gap-px border border-neutral-200 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col">
         {services.map(({ title, description }) => (
-          <div key={title} className="flex flex-col gap-4 bg-white p-10">
-            <h2 className="text-base font-medium uppercase tracking-[0.15em] text-neutral-900">
-              {title}
-            </h2>
-            <p className="text-base leading-relaxed text-neutral-500">
-              {description}
-            </p>
-          </div>
+          <article key={title} className="group border-b border-neutral-200">
+            <div className="relative flex flex-col gap-4 py-10 sm:py-12 pl-6 sm:pl-10 transition-[border-color,padding] duration-500 ease-out group-hover:border-neutral-200 lg:group-hover:pl-12">
+              <span
+                aria-hidden
+                className="absolute left-0 top-14 sm:top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-neutral-300 transition-colors duration-500 group-hover:bg-neutral-900"
+              />
+              <h2
+                className="font-light tracking-tight text-neutral-900 leading-none"
+                style={{ fontSize: "clamp(1.9rem, 5.5vw, 3.4rem)" }}
+              >
+                {title}
+              </h2>
+              <p className="text-[0.95rem] sm:text-2xl text-neutral-500 leading-relaxed max-w-4xl transition-colors duration-500 group-hover:text-neutral-700">
+                {description}
+              </p>
+            </div>
+          </article>
         ))}
       </div>
-    </main>
+
+      <div className="flex items-center justify-between pt-6 pb-2">
+        <p className="text-[0.65rem] uppercase sm:text-sm tracking-[0.25em] text-neutral-900">
+          Cairo, Egypt
+        </p>
+        <a
+          href="/contact"
+          className="group flex items-center gap-2 text-[0.65rem] sm:text-sm uppercase tracking-[0.25em] text-neutral-900 hover:text-black transition-colors duration-200"
+        >
+          Start a project
+          <span className="inline-block">→</span>
+        </a>
+      </div>
+    </div>
   );
 }

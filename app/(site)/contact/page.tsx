@@ -52,11 +52,8 @@ const channels: {
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col">
-      <section className="px-8 sm:px-10 lg:px-16 pb-8 border-b border-neutral-200">
-        <p className="text-[0.65rem] uppercase tracking-[0.35em] text-neutral-400 mb-2">
-          Get in touch
-        </p>
+    <>
+      <section className="flex flex-col px-8 sm:px-10 lg:px-16 pb-8 border-b border-neutral-200">
         <h1
           className="font-black tracking-tight text-neutral-900 leading-[1] select-none sm:my-4"
           style={{ fontSize: "clamp(3.5rem, 9vw, 6rem)" }}
@@ -65,7 +62,7 @@ export default function ContactPage() {
         </h1>
       </section>
 
-      <div className="flex-1">
+      <div className="flex-1 pb-30 sm:p-0">
         {channels.map((ch) => {
           const Icon = ch.icon;
           return (
@@ -124,6 +121,6 @@ export default function ContactPage() {
           );
         })}
       </div>
-    </main>
+      </>
   );
 }

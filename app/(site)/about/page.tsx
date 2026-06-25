@@ -14,8 +14,8 @@ const capabilities = [
 
 export default function AboutPage() {
   return (
-    <main className="flex flex-col px-6 sm:px-10 lg:px-16 pb-10">
-      <section className="border-b border-neutral-200 pb-10 sm:py-16">
+    <div className="flex flex-col px-6 sm:px-10 lg:px-16 pb-10">
+      <section className="border-b border-neutral-200 pb-10 sm:pb-16 sm:pt-10">
         <h1
           className="font-black tracking-tight text-neutral-900 leading-[0.88] select-none"
           style={{ fontSize: "clamp(3.2rem, 8.5vw, 7rem)" }}
@@ -26,14 +26,14 @@ export default function AboutPage() {
 
       <div className="grid lg:grid-cols-[13rem_1fr] border-b border-neutral-200">
         <aside className="hidden lg:flex flex-col py-12 pr-8 border-r border-neutral-200">
-          <p className="text-[0.58rem] uppercase tracking-[0.35em] text-neutral-400 mb-7">
+          <p className="text-sm uppercase tracking-[0.35em] text-neutral-400 mb-7">
             Capabilities
           </p>
           <ul className="flex flex-col gap-4">
             {capabilities.map((cap) => (
               <li key={cap} className="flex items-center gap-3">
                 <span className="w-5 h-px bg-neutral-300 shrink-0" />
-                <span className="text-[0.78rem] tracking-[0.07em] text-neutral-600 leading-snug">
+                <span className="text-sm tracking-[0.07em] text-neutral-600 leading-snug">
                   {cap}
                 </span>
               </li>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           </ul>
         </aside>
 
-        <div className="flex flex-col gap-10 py-10 lg:py-12 lg:pl-12 xl:pl-16">
+        <div className="flex flex-col gap-6 py-10 lg:py-12 lg:pl-12 xl:pl-16">
           <p
             className="text-neutral-800 font-light leading-[1.6] max-w-3xl"
             style={{ fontSize: "clamp(1.05rem, 1.75vw, 1.6rem)" }}
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
           <div className="flex flex-col gap-6">
             <div className="w-8 h-px bg-neutral-300" />
-            <p className="text-[0.93rem] text-neutral-500 leading-relaxed max-w-xl">
+            <p className="text-[0.93rem] sm:text-lg text-neutral-500 leading-relaxed max-w-xl">
               From brand discovery and strategic positioning to identity design,
               digital experiences, motion graphics, and marketing communications,
               we develop cohesive visual ecosystems that strengthen brand
@@ -78,6 +78,6 @@ export default function AboutPage() {
           <span className="inline-block">→</span>
         </a>
       </div>
-    </main>
+    </div>
   );
 }
