@@ -46,7 +46,7 @@ export default function Navbar() {
         <span className="text-2xl leading-8 sm:text-[2.6rem] font-black tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
           Butter.
         </span>
-        <span className="text-2xl sm:text-[1.2rem] tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
+        <span className="hidden md:block text-2xl sm:text-[1.2rem] tracking-[0.02em] text-neutral-900 transition-opacity duration-200 group-hover:opacity-70">
           Design Bureau.
         </span>
       </Link>

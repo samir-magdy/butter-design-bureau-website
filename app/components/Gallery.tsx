@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Video from "yet-another-react-lightbox/plugins/video";
@@ -45,7 +46,7 @@ export default function Gallery({ slides, gapless }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " aspect-square" : ""}`}
+            className={`relative overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " aspect-square" : ""}`}
           >
             {isVideo(slide.src) ? (
               <video
@@ -57,10 +58,13 @@ export default function Gallery({ slides, gapless }: Props) {
                 className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
               />
             ) : (
-              <img
+              <Image
                 src={slide.src}
                 alt=""
-                className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
+                fill
+                unoptimized={slide.src.endsWith(".gif")}
+                className={`transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " object-cover" : " object-contain"}`}
+                sizes="(min-width: 640px) 33vw, 50vw"
               />
             )}
           </button>

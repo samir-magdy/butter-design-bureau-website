@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/lib/data";
 
@@ -10,10 +11,12 @@ export default function ProjectCard({ project }: Props) {
     <Link href={`/work/${project.slug}`}>
       <article className="group relative cursor-pointer overflow-hidden">
         <div className="relative aspect-5/3 w-full">
-          <img
+          <Image
             src={project.coverImage}
             alt={project.title}
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            priority
+            className="object-cover"
             sizes="(min-width: 640px) 50vw, 100vw"
           />
         </div>
