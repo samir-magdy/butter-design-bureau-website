@@ -8,10 +8,27 @@ export default function HeroSection() {
 
   useEffect(() => {
     let done = false;
-    const dismiss = () => {
-      if (done) return;
+    let minTimer: ReturnType<typeof setTimeout> | undefined;
+
+    // Keep the overlay up for at least 2s after page load, even if the
+    // video is already ready. performance.now() is time since navigation
+    // start, so it already accounts for time spent before this effect ran.
+    const minRemaining = Math.max(0, 4000 - performance.now());
+
+    const reveal = () => {
       done = true;
       setDismissed(true);
+    };
+
+    const dismiss = () => {
+      if (done) return;
+      if (minRemaining > 0) {
+        // Defer until the minimum display time has elapsed.
+        done = true;
+        minTimer = setTimeout(() => setDismissed(true), minRemaining);
+        return;
+      }
+      reveal();
     };
 
     // Measure how long the page has already been loading.
@@ -37,6 +54,7 @@ export default function HeroSection() {
     return () => {
       video?.removeEventListener("canplay", dismiss);
       clearTimeout(timeout);
+      if (minTimer) clearTimeout(minTimer);
     };
   }, []);
 
@@ -71,7 +89,9 @@ export default function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-black/80 to-transparent pointer-events-none" />
       <div className="absolute inset-0 bottom-0 flex items-center justify-between pointer-events-none">
         <div className="leading-[1.05] ps-6 sm:ps-16 absolute bottom-32 sm:bottom-28">
-          <p className="font-bold text-white mb-6 sm:mb-12 text-[2.5rem] lg:text-[6vw]">Butter.</p>
+          <p className="font-bold text-white mb-6 sm:mb-12 text-[2.5rem] lg:text-[6vw]">
+            Butter.
+          </p>
           <p className="text-start leading-snug text-white m-0 text-[1.3rem] lg:text-[2.5vw]">
             We build brands that <strong>feel refined</strong>
             <br />
@@ -83,19 +103,22 @@ export default function HeroSection() {
         className={`loading-gate fixed inset-0 z-50 bg-black flex flex-col items-center justify-center gap-12${dismissed ? " dismissed" : ""}`}
         aria-hidden={dismissed}
       >
-        <div className="flex flex-col items-center gap-2 select-none">
+        <div className="flex flex-col items-center gap-2 select-none text-center">
           <p className="font-bold text-white leading-none tracking-[0.02em] text-[3.5rem] sm:text-[5rem]">
             Butter.
           </p>
-          <p className="block text-[1.55rem] sm:text-[2.25rem] tracking-[0.02em] text-neutral-100">
+          {/* Editorial tracking polish for Design Bureau */}
+          <p className="block text-[1rem] sm:text-[1.5rem] tracking-[0.22em] uppercase text-neutral-400 font-light pl-[0.1em]">
             Design Bureau.
           </p>
         </div>
-        {!dismissed && (
-          <div className="relative w-32 h-2 bg-white/10 overflow-hidden rounded-full">
-            <div className="absolute loading-bar inset-y-0 left-0 w-16 bg-linear-to-r from-transparent via-[#e04d28] to-transparent" />
-          </div>
-        )}
+        {/* Always mounted so it fades out with the gate instead of vanishing */}
+        <div className="relative w-40 h-[3px] bg-white/5 overflow-hidden rounded-full">
+          {/* The main hot accent color */}
+          <div className="absolute loading-bar inset-y-0 left-0 w-full bg-linear-to-r from-transparent via-[#e04d28] to-transparent" />
+          {/* The bright white "melting core" that trails slightly behind */}
+          <div className="absolute loading-bar-core inset-y-0 left-0 w-full bg-linear-to-r from-transparent via-white/40 to-transparent" />
+        </div>
       </div>
     </section>
   );

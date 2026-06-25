@@ -15,16 +15,24 @@ body {
   margin: 0;
 }
 
-@keyframes butter-sweep {
-  0%   { transform: translateX(-100%); }
-  55%  { transform: translateX(300%); }
-  100% { transform: translateX(300%); }
+@keyframes butter-melt {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .loading-bar {
-  animation: butter-sweep 2s linear infinite;
+  animation: butter-melt 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+.loading-bar-core {
+  /* 0.1s delay and slightly different curve creates an elastic "liquid trailing" effect */
+  animation: butter-melt 1.8s cubic-bezier(0.3, 0, 0.1, 1) infinite;
+  animation-delay: -0.1s; 
+}
 /* Gate fade-out. fill-mode:both keeps opacity:0 after the animation completes. */
 @keyframes gate-dismiss {
   from { opacity: 1; }
@@ -43,5 +51,5 @@ body {
 /* JS primary path: video ready, or the 6s deadline elapsed. Fades immediately. */
 .loading-gate.dismissed {
   pointer-events: none;
-  animation: gate-dismiss 0.7s ease-out both;
+  animation: gate-dismiss 5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
