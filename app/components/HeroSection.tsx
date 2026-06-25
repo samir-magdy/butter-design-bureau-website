@@ -4,15 +4,29 @@ import { useEffect, useRef } from "react";
 
 export default function HeroSection({ onReady }: { onReady?: () => void }) {
   const ref = useRef<HTMLElement>(null);
+  const readyFired = useRef(false);
+
+  const fireReady = () => {
+    if (!readyFired.current) {
+      readyFired.current = true;
+      onReady?.();
+    }
+  };
 
   useEffect(() => {
+    // Fallback: always clear the gate within 4 seconds
+    const timeout = setTimeout(fireReady, 4000);
+
     const onScroll = () => {
       if (ref.current) {
         ref.current.style.transform = `translateY(-${window.scrollY * 0.35}px)`;
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -30,7 +44,8 @@ export default function HeroSection({ onReady }: { onReady?: () => void }) {
           loop
           muted
           playsInline
-          onCanPlay={onReady}
+          onCanPlay={fireReady}
+          onError={fireReady}
         />
       </div>
       <div className="absolute inset-0 bg-black/40 pointer-events-none" />
