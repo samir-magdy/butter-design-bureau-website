@@ -13,6 +13,7 @@ const aeonik = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://butterdesignbureau.com"),
   title: {
     template: "%s | Butter Design Bureau",
     default: "Butter Design Bureau",

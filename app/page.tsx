@@ -1,5 +1,5 @@
 import BackToTop from "./components/BackToTop";
-import HomeClient from "./components/HomeClient";
+import HeroSection from "./components/HeroSection";
 import PortfolioGrid from "./components/PortfolioGrid";
 import SiteByCredit from "./components/SiteByCredit";
 
@@ -12,7 +12,7 @@ export const metadata = {
 export default function Home() {
   return (
     <>
-      <HomeClient />
+      <HeroSection />
       <div className="h-dvh" aria-hidden="true" />
       <PortfolioGrid />
       <BackToTop />
