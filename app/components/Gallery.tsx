@@ -18,6 +18,12 @@ function getColSpan(cols: 2 | 3 | 6 | undefined): string {
   return "col-span-1 sm:col-span-3";
 }
 
+function getSizes(cols: 2 | 3 | 6 | undefined): string {
+  if (cols === 6) return "100vw";
+  if (cols === 2) return "(min-width: 640px) 33vw, 50vw";
+  return "(min-width: 640px) 50vw, 50vw";
+}
+
 function isVideo(src: string) {
   return src.endsWith(".mp4") || src.endsWith(".webm");
 }
@@ -46,7 +52,7 @@ export default function Gallery({ slides, gapless }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`relative overflow-hidden focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " aspect-square" : ""}`}
+            className={`focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " relative overflow-hidden aspect-square" : ""}`}
           >
             {isVideo(slide.src) ? (
               <video
@@ -57,14 +63,24 @@ export default function Gallery({ slides, gapless }: Props) {
                 playsInline
                 className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
               />
+            ) : slide.cols === 6 ? (
+              <Image
+                src={slide.src}
+                alt=""
+                width={0}
+                height={0}
+                unoptimized={slide.src.endsWith(".gif")}
+                className="w-full h-auto transition-opacity duration-300 hover:opacity-80"
+                sizes="100vw"
+              />
             ) : (
               <Image
                 src={slide.src}
                 alt=""
                 fill
                 unoptimized={slide.src.endsWith(".gif")}
-                className={`transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " object-cover" : " object-contain"}`}
-                sizes="(min-width: 640px) 33vw, 50vw"
+                className="object-cover transition-opacity duration-300 hover:opacity-80"
+                sizes={getSizes(slide.cols)}
               />
             )}
           </button>
