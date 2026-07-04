@@ -52,7 +52,7 @@ export default function Gallery({ slides, gapless }: Props) {
               setIndex(i);
               setOpen(true);
             }}
-            className={`focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " relative overflow-hidden aspect-square sm:aspect-15/10" : ""}`}
+            className={`focus:outline-none cursor-pointer ${getColSpan(slide.cols)}${slide.cols !== 6 ? " relative overflow-hidden aspect-square" : ""}`}
           >
             {isVideo(slide.src) ? (
               <video

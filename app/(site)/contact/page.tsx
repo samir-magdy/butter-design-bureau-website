@@ -94,7 +94,7 @@ export default function ContactPage() {
             <div className="hidden sm:block flex-1 min-w-0">
               <span
                 className="block font-light text-neutral-900 leading-none"
-                style={{ fontSize: "clamp(1.4rem, 3.2vw, 2.4rem)" }}
+                style={{ fontSize: "clamp(1.4rem, 3.2vw, 1.5rem)" }}
               >
                 {ch.display}
               </span>
