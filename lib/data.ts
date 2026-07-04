@@ -140,7 +140,6 @@ export const projects: Project[] = [
       { src: "/project-images/g-studio/g-studio-3.webp" },
       { src: "/project-images/g-studio/g-studio-2.webp" },
       { src: "/project-images/g-studio/g-studio-1.gif" },
-      // { src: "/project-images/g-studio/g-studio-5.webp" },
     ],
   },
   {
@@ -165,9 +164,6 @@ export const projects: Project[] = [
       { src: "/project-images/printables/printables-img-10.gif"},
       { src: "/project-images/printables/printables-img-3.webp"},
       { src: "/project-images/printables/printables-img-11.gif"},
-      // { src: "/project-images/printables/printables-img-7.gif", cols: 2 },
-      // { src: "/project-images/printables/printables-img-8.gif", cols: 2 },
-      // { src: "/project-images/printables/printables-img-12.gif", cols: 2 },
     ],
   },
   {
