@@ -20,8 +20,8 @@ const channels: {
     index: "01",
     label: "Email",
     icon: FiMail,
-    display: "a.sherifworks@gmail.com",
-    href: "mailto:a.sherifworks@gmail.com",
+    display: "info@butterdesignbureau.com",
+    href: "mailto:info@butterdesignbureau.com",
     external: false,
   },
   {
