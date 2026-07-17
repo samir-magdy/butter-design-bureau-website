@@ -71,7 +71,7 @@ export default function ContactPage() {
             href={ch.href}
             target={ch.external ? "_blank" : undefined}
             rel={ch.external ? "noopener noreferrer" : undefined}
-            className="group flex items-center gap-6 px-8 sm:px-10 lg:px-16 py-8 sm:py-9 border-b border-neutral-200 hover:bg-[#f9f8f6] transition-colors duration-200"
+            className="group flex items-center gap-6 px-8 sm:px-10 lg:px-16 py-8 sm:py-9 border-b border-neutral-200 hover:bg-gray-200/50 transition-colors duration-200"
           >
             {/* Desktop: index above icon in fixed left column */}
             <div className="hidden sm:flex flex-col items-start justify-center gap-1.5 w-24 shrink-0 select-none">
@@ -84,7 +84,7 @@ export default function ContactPage() {
               <Icon size={22} className="text-neutral-400 shrink-0" aria-label={ch.label} />
               <span
                 className="font-light text-neutral-900 leading-tight break-all"
-                style={{ fontSize: "clamp(1rem, 5vw, 1.25rem)" }}
+                style={{ fontSize: "clamp(0.7rem, 4vw, 1.25rem)" }}
               >
                 {ch.display}
               </span>

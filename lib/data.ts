@@ -1,4 +1,4 @@
-export type GalleryItem = { src: string; cols?: 2 | 3 | 6 };
+export type GalleryItem = { src: string; cols?: 2 | 3 | 6; contain?: boolean };
 
 export type Project = {
   id: string;
@@ -137,8 +137,8 @@ export const projects: Project[] = [
       { src: "/project-images/g-studio/g-studio-6.webp" },
       { src: "/project-images/g-studio/video-g-studio.mp4" },
       { src: "/project-images/g-studio/g-studio-4.webp" },
-      { src: "/project-images/g-studio/g-studio-3.webp" },
       { src: "/project-images/g-studio/g-studio-2.webp" },
+      { src: "/project-images/g-studio/g-studio-3.webp" },
       { src: "/project-images/g-studio/g-studio-1.gif" },
     ],
   },
@@ -159,7 +159,7 @@ export const projects: Project[] = [
       { src: "/project-images/printables/printables-img-2.webp" },
       { src: "/project-images/printables/beh-booklet-3.gif"},
       { src: "/project-images/printables/printables-img-4.webp" },
-      { src: "/project-images/printables/printables-img-5.gif" },
+      { src: "/project-images/printables/printables-img-5.gif", contain: true },
       { src: "/project-images/printables/printables-img-9.webp" },
       { src: "/project-images/printables/printables-img-10.gif"},
       { src: "/project-images/printables/printables-img-3.webp"},

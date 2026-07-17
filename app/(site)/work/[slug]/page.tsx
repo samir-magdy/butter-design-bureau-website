@@ -63,6 +63,7 @@ export default async function ProjectPage({
       <Gallery
         slides={allImages}
         gapless={project.id === "think"}
+        contain={project.id === "g-studio"}
       />
       <BackToTop />
     </div>
