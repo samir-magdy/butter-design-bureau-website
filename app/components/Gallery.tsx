@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Video from "yet-another-react-lightbox/plugins/video";
 import "yet-another-react-lightbox/styles.css";
 import type { GalleryItem } from "@/lib/data";
+import BlurImage from "./BlurImage";
 
 type Props = {
   slides: GalleryItem[];
@@ -17,12 +17,6 @@ function getColSpan(cols: 2 | 3 | 6 | undefined): string {
   if (cols === 6) return "col-span-6";
   if (cols === 2) return "col-span-2";
   return "col-span-3";
-}
-
-function getSizes(cols: 2 | 3 | 6 | undefined): string {
-  if (cols === 6) return "100vw";
-  if (cols === 2) return "33vw";
-  return "50vw";
 }
 
 function isVideo(src: string) {
@@ -65,23 +59,20 @@ export default function Gallery({ slides, gapless, contain }: Props) {
                 className={`block w-full transition-opacity duration-300 hover:opacity-80${slide.cols !== 6 ? " h-full object-cover" : " max-w-full"}`}
               />
             ) : slide.cols === 6 || contain ? (
-              <Image
+              <BlurImage
                 src={slide.src}
                 alt=""
-                width={0}
-                height={0}
-                unoptimized={slide.src.endsWith(".gif")}
-                className="w-full h-auto transition-opacity duration-300 hover:opacity-80"
-                sizes={slide.cols === 6 ? "100vw" : getSizes(slide.cols)}
+                loading="lazy"
+                decoding="async"
+                className="block w-full h-auto transition-opacity duration-300 hover:opacity-80"
               />
             ) : (
-              <Image
+              <BlurImage
                 src={slide.src}
                 alt=""
-                fill
-                unoptimized={slide.src.endsWith(".gif")}
-                className={`${slide.contain ? "object-contain" : "object-cover"} transition-opacity duration-300 hover:opacity-80`}
-                sizes={getSizes(slide.cols)}
+                loading="lazy"
+                decoding="async"
+                className={`absolute inset-0 h-full w-full ${slide.contain ? "object-contain" : "object-cover"} transition-opacity duration-300 hover:opacity-80`}
               />
             )}
           </button>
